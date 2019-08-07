@@ -84,6 +84,8 @@ def game_loop():
     player1 = Player(hand = [], name = 'p1', pairs = 0)
     player2 = Player(hand = [], name = 'p2', pairs = 0)
     d1.deal(player1, player2)
+    player1.check_pairs()
+    player2.check_pairs()
     current_player = player1
     while len(d1.deck) > 0:
         if current_player == player1:
@@ -93,6 +95,7 @@ def game_loop():
             current_player = player2
         else:
             player2.display(d1)
+            player2.check_pairs()
             current_ask = input("Player 2: What card are you looking for: ")
             player2.ask(player1, current_ask, d1)
             current_player = player1

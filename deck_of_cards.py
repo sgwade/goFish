@@ -9,11 +9,25 @@ def splash_screen(seconds):
   print(" *      GO FISH!       *")
   print(" *        v1.0         *")
   print(" *                     *")
+  print(" *              o      *")
+  print(" *             O  _    *")
+  print(" *         (\.   (_)   *")
+  print(" *     (\.'  /`Oo      *")
+  print(" *      >   |   )      *")
+  print(" *     (/'.  \ <       *")
+  print(" *          /-\`       *")
+  print(" *                     *")
+  print(" *     Written By:     *")
+  print(" *      Trogers32      *")
+  print(" *      justinPhi      *")
+  print(" *       sgwade        *")
+  print(" *      everett-j      *")
+  print(" *                     *")
   print(" ***********************")
   time.sleep(seconds)
   os.system('clear')
 
-splash_screen(5)
+splash_screen(7)
 
 
 class Card:

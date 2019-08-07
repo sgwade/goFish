@@ -1,4 +1,20 @@
 import random
+import os
+import time
+
+def splash_screen(seconds):
+  print("\n")
+  print(" ***********************")
+  print(" *                     *")
+  print(" *      GO FISH!       *")
+  print(" *        v1.0         *")
+  print(" *                     *")
+  print(" ***********************")
+  time.sleep(seconds)
+  os.system('clear')
+
+splash_screen(5)
+
 
 class Card:
     def __init__(self, suit, value):

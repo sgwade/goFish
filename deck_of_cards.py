@@ -46,11 +46,11 @@ class Player:
         count1 = 0
         count2 = 0
         for i in target.hand:
-            if i.value == card:
+            if i.value == int(card):
                 target.hand.pop(count1)
                 self.pairs += 1
                 for x in self.hand:
-                    if x.value == card:
+                    if x.value == int(card):
                         self.hand.pop(count1)
                         print("You got a pair!")
                         return self
@@ -71,6 +71,7 @@ def game_loop():
     while len(d1.deck) > 0:
         if current_player == player1:
             player1.display()
+<<<<<<< HEAD
             current_ask = input("Player 1: What card are you looking for: ")
             player1.ask (player2, current_ask, d1)
             current_player = player2
@@ -78,6 +79,15 @@ def game_loop():
             player2.display()
             current_ask = input("Player 2: What card are you looking for: ")
             player2.ask (player1, current_ask, d1)
+=======
+            current_ask = input("What card are you looking for: ")
+            player1.ask(player2, current_ask, d1)
+            current_player = player2
+        else:
+            player2.display()
+            current_ask = input("What card are you looking for: ")
+            player2.ask(player1, current_ask, d1)
+>>>>>>> c5debb68de45e322b67eacacf5d87888cd11642f
             current_player = player1
     if player1.pairs > player2.pairs:
         print("Player 1 Wins!")

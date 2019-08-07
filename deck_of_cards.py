@@ -71,12 +71,12 @@ def game_loop():
     while len(d1.deck) > 0:
         if current_player == player1:
             player1.display()
-            current_ask = input("What card are you looking for: ")
+            current_ask = input("Player 1: What card are you looking for: ")
             player1.ask (player2, current_ask, d1)
             current_player = player2
         else:
             player2.display()
-            current_ask = input("What card are you looking for: ")
+            current_ask = input("Player 2: What card are you looking for: ")
             player2.ask (player1, current_ask, d1)
             current_player = player1
     if player1.pairs > player2.pairs:

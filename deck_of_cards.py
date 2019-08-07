@@ -27,9 +27,7 @@ class Deck:
         for p in player:
             for i in range(7):
                 p.hand.append(self.deck.pop())
-    def draw(self, player):
-        player.hand.append(self.deck.pop())
-
+    
 class Player:
     def __init__(self, hand = [], name = '', pairs = 0):
         self.hand = hand
@@ -39,6 +37,8 @@ class Player:
         for in target.hand:
             if i.values == card:
                 player.hand.append(target.hand.pop(count))
+    def draw(self, player):
+        player.hand.append(self.deck.pop())
 
 
 player1 = Player(hand = [], name = 'p1', pairs = 0)

@@ -92,6 +92,7 @@ def game_loop():
             player1.check_pairs()
             player1.display(d1)
             current_ask = input("Player 1, what card are you looking for: ")
+            player2.ask(player1, current_ask, d1)
             current_player = player2
         else:
             player2.display(d1)

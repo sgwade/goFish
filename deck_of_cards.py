@@ -40,6 +40,7 @@ class Player:
         player_hand = '' 
         for i in self.hand:
             player_hand += str(i.value) + ' of ' + i.suit + ' | '
+        print(player_hand)
     
     def ask(self, target, card, deck):
         count1 = 0

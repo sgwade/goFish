@@ -48,6 +48,7 @@ class Player:
             count1 += 1
         if count2 == 0:
             deck.draw(player)
+            print("Go fish!")
         return self
 
 

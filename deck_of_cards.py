@@ -46,36 +46,26 @@ class Player:
             deck.draw(self)
             return self
         count1 = 0
-        count2 = 0
+        card = int(card)
+        current_card = 0
+        print(card)
         for i in target.hand:
-            if i.value == int(card):
+            d = int(i.value)
+            if d == card:
                 target.hand.pop(count1)
                 self.pairs += 1
                 for x in self.hand:
-                    if x.value == int(card):
-                        self.hand.pop(count1)
-                        print("You got a pair!")
+                    if x.value == card:
+                        self.hand.pop(current_card)
+                        print(f"You got a pair: {i} : {x}")
                         return self
-                    count2 += 1
+                    current_card += 1
             count1 += 1
-        if count2 == 0:
-            deck.draw(self)
-            print("Go fish!")
+        deck.draw(self)
+        print("Go fish!")
         return self
     def check_pairs(self):
-        count = 0
-        con = len(self.hand)
-        for i in self.hand:
-            x = count+1
-            while x < con:
-                if i.value == self.hand[x].value:
-                    self.pairs += 1
-                    self.hand.pop(x)
-                    self.hand.pop(count)
-                    con -= 2
-                x += 1
-            count += 1
-        return self
+        pass
 
 
 def game_loop():
@@ -84,6 +74,8 @@ def game_loop():
     player1 = Player(hand = [], name = 'p1', pairs = 0)
     player2 = Player(hand = [], name = 'p2', pairs = 0)
     d1.deal(player1, player2)
+    player1.display(d1)
+    player2.display(d1)
     player1.check_pairs()
     player2.check_pairs()
     current_player = player1
@@ -91,12 +83,12 @@ def game_loop():
         if current_player == player1:
             player1.check_pairs()
             player1.display(d1)
-            current_ask = input("Player 1, what card are you looking for: ")
+            current_ask = input("Player 1: what card are you looking for: ")
             player1.ask(player2, current_ask, d1)
             current_player = player2
         else:
-            player2.display(d1)
             player2.check_pairs()
+            player2.display(d1)
             current_ask = input("Player 2: What card are you looking for: ")
             player2.ask(player1, current_ask, d1)
             current_player = player1

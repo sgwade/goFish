@@ -65,7 +65,7 @@ def game_loop():
     player2 = Player(hand = [], name = 'p2', pairs = 0)
     d1.deal(player1, player2)
     current_player = player1
-    while len(d1) > 0:
+    while len(d1.deck) > 0:
         if current_player == player1:
             player1.display()
             current_ask = input("What card are you looking for: ")
@@ -83,4 +83,4 @@ def game_loop():
     else:
         print("It's a TIE!!!!")
 
-
+game_loop()

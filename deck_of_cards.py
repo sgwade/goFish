@@ -35,10 +35,22 @@ class Player:
         self.hand = hand
         self.name = name
         self.pairs = pairs
-    def ask(self, player, target, card):
-        for in target.hand:
-            if i.values == card:
-                player.hand.append(target.hand.pop(count))
+    def ask(self, player, target, card, deck):
+        count1, count2 = 0
+        for i in target.hand:
+            if i.value == card:
+                target.hand.pop(count1)
+                player.pairs += 1
+                for x in player.hand:
+                    if x.value == card:
+                        player.hand.pop(count1)
+                        print("You got a pair!")
+                        return self
+                    count2 += 1
+            count1 += 1
+        if count2 == 0:
+            deck.draw(player)
+        return self
 
 
 player1 = Player(hand = [], name = 'p1', pairs = 0)

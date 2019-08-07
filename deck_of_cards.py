@@ -92,10 +92,10 @@ def game_loop():
             current_ask = input("Player 1, what card are you looking for: ")
             current_player = player2
         else:
-            player2.display()
+            player2.display(d1)
             current_ask = input("Player 2: What card are you looking for: ")
             player2.ask(player1, current_ask, d1)
-            current_player = player2
+            current_player = player1
     if player1.pairs > player2.pairs:
         print("Player 1 Wins!")
     elif player1.pairs < player2.pairs:

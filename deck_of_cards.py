@@ -58,4 +58,4 @@ d1 = Deck()
 d1.build_deck()
 print(d1.deck)
 print(len(d1.deck))
-    
+

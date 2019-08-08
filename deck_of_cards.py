@@ -27,7 +27,7 @@ def splash_screen(seconds):
   time.sleep(seconds)
   os.system('clear')
 
-splash_screen(7)
+#splash_screen(7)
 
 
 class Card:
@@ -78,7 +78,6 @@ class Player:
         count1 = 0
         card = int(card)
         current_card = 0
-        print(card)
         for i in target.hand:
             d = int(i.value)
             if d == card:
@@ -95,7 +94,21 @@ class Player:
         print("Go fish!")
         return self
     def check_pairs(self):
-        pass
+        count = 0
+        con = len(self.hand)
+        for i in range(con):
+            x = count+1
+            while x < con:
+                if self.hand[i].value == self.hand[x].value:
+                    print(f"{self.name} You got a pair: {self.hand[i]} : {self.hand[x]}")
+                    self.pairs += 1
+                    self.hand.pop(x)
+                    self.hand.pop(count)
+                    con -= 2
+                    x -= 2
+                x += 1
+            count += 1
+        return self
 
 
 def game_loop():
@@ -109,18 +122,21 @@ def game_loop():
     player1.check_pairs()
     player2.check_pairs()
     current_player = player1
+    print("\n")
     while len(d1.deck) > 0:
         if current_player == player1:
             player1.check_pairs()
             player1.display(d1)
             current_ask = input("Player 1: what card are you looking for: ")
             player1.ask(player2, current_ask, d1)
+            print("\n")
             current_player = player2
         else:
             player2.check_pairs()
             player2.display(d1)
             current_ask = input("Player 2: What card are you looking for: ")
             player2.ask(player1, current_ask, d1)
+            print("\n")
             current_player = player1
     if player1.pairs > player2.pairs:
         print("Player 1 Wins!")
